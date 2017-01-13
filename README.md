@@ -42,6 +42,6 @@ Run
 To avoid false positives on subsequent runs reset your test directory hierachy (root/**):
 
 ```
-(cd directory-traversal && git checkout -- root)
+(cd directory-traversal && git clean -f -X -- root)
 ```
 
