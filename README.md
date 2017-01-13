@@ -20,7 +20,7 @@ Options:
 ### Basic example
 
 ```
-echo -e "../hacked\n../../hacked" | directory-traversal/run.php ''
+echo -e "../hacked\n../../hacked" | directory-traversal/run.php '#\.\.[\\\/]#'
 ```
 
 ### [DotDotPwn] example
@@ -34,12 +34,12 @@ git clone https://github.com/wireghoul/dotdotpwn.git
 Run
 
 ```
-(cd dotdotpwn && ./dotdotpwn.pl -f 'hacked' -d 1 -m 'stdout' | ../directory-traversal/run.php '')
+(cd dotdotpwn && ./dotdotpwn.pl -f 'hacked' -d 1 -m 'stdout' | ../directory-traversal/run.php '#\.\.[\\\/]#')
 ```
 
 ## Reset test directories
 
-To avoid false positives on subsequent runs reset your test directory hierachy (root/**:
+To avoid false positives on subsequent runs reset your test directory hierachy (root/**):
 
 ```
 (cd directory-traversal && git checkout -- root)
