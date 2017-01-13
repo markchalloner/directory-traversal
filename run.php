@@ -17,6 +17,15 @@ $paths = [];
 $input = stream_get_contents(STDIN);
 $paths = array_filter(explode(PHP_EOL, $input));
 
+// Reset root
+chdir(__DIR__);
+$_ = [];
+exec('git clean -d -f -X -- root', $_, $return);
+if ($return > 0) {
+    echo 'ERROR: Unable to clean test directory.';
+    exit(1);
+}
+
 // Test method
 foreach ($paths as $path) {
     if ($regex === null || !preg_match($regex, $path)) {

@@ -37,12 +37,4 @@ Run
 (cd dotdotpwn && ./dotdotpwn.pl -f 'hacked' -d 1 -m 'stdout' | ../directory-traversal/run.php '#\.\.[\\\/]#')
 ```
 
-## Reset test directories
-
-To avoid false positives on subsequent runs reset your test directory hierachy (root/**):
-
-```
-(cd directory-traversal && git clean -f -X -- root)
-```
-
 [DotDotPwn]: https://github.com/wireghoul/dotdotpwn
