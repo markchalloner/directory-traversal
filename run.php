@@ -5,8 +5,11 @@
 $dirRoot = 'root';
 $dirDocroot = $dirRoot.'/parent/child/docroot';
 
-// Options
+// Arguments
 $regex = null;
+if ($argc > 1) {
+  $regex = $argv[1];
+}
 
 // Stdin
 $paths = [];
