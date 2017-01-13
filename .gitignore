@@ -1,0 +1,3 @@
+root/*
+!root/parent/child/docroot/README.md
+
