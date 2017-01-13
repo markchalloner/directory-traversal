@@ -1,3 +1,11 @@
-root/*
-!root/parent/child/docroot/README.md
+/root/*
+!/root/parent
+/root/parent/*
+/root/parent/*/**
+!root/parent/child
+/root/parent/child/*
+/root/parent/child/*/**
+!/root/parent/child/docroot
+/root/parent/child/docroot/*
+!/root/parent/child/docroot/README.md
 

@@ -2,18 +2,11 @@
 <?php
 
 // Tests the regex to see if it filters directory traversal attacks safely
-
-$regex = '#\.\.[\\\/]#';
-
 $dirRoot = 'root';
 $dirDocroot = $dirRoot.'/parent/child/docroot';
 
 // Options
-$noFilter = false;
-if ($argc > 1 && $argv[1] === '--no-filter') {
-    echo 'INFO: Filter disabled'.PHP_EOL;
-    $noFilter = true;
-}
+$regex = null;
 
 // Stdin
 $paths = [];
@@ -23,7 +16,7 @@ $paths = array_filter(explode(PHP_EOL, $input));
 
 // Test method
 foreach ($paths as $path) {
-    if ($noFilter || !preg_match($regex, $path)) {
+    if ($regex === null || !preg_match($regex, $path)) {
         echo 'WARNING: Passed validation "'.$path.'".'.PHP_EOL;
         $filename = __DIR__.'/'.$dirDocroot.'/'.$path;
         @mkdir(dirname($filename), 0777, true);
